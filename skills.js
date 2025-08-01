@@ -2,7 +2,7 @@ const all_skills = [
     {
         key: "python",
         title: "Python",
-        subtitle: "Programming langage",
+        subtitle: "Programming language",
         score: 5,
         img: "https://cdn-icons-png.flaticon.com/128/5968/5968350.png",
         text: `
@@ -39,7 +39,7 @@ const all_skills = [
     {
         key: "javascript",
         title: "Javascript",
-        subtitle: "Programming langage",
+        subtitle: "Programming language",
         score: 5,
         img: "https://cdn-icons-png.flaticon.com/128/5968/5968292.png",
         text: `
@@ -64,7 +64,7 @@ const all_skills = [
     {
         key: "typescript",
         title: "Typescript",
-        subtitle: "Programming langage",
+        subtitle: "Programming language",
         score: 4,
         img: "https://cdn-icons-png.flaticon.com/128/5968/5968381.png",
         text: `
@@ -76,7 +76,7 @@ const all_skills = [
     {
         key: "html",
         title: "HTML",
-        subtitle: "Markup langage",
+        subtitle: "Markup language",
         score: 5,
         img: "https://cdn-icons-png.flaticon.com/128/1051/1051277.png",
         text: `
@@ -88,7 +88,7 @@ const all_skills = [
     {
         key: "css",
         title: "CSS",
-        subtitle: "Style sheet langage",
+        subtitle: "Style sheet language",
         score: 4,
         img: "https://cdn-icons-png.flaticon.com/128/16020/16020753.png",
         text: `
@@ -128,12 +128,24 @@ const all_skills = [
     {
         key: "clangage",
         title: "C Langage",
-        subtitle: "Programming Langage",
+        subtitle: "Programming language",
         score: 3,
         img: "https://cdn-icons-png.flaticon.com/128/3665/3665899.png",
         text: `
         <p>
-            Used it on personal project to get some basics from a lower level langage.
+            Used it on personal project to get some basics from a lower level language.
+        </p>
+        `
+    },
+    {
+        key: "fortran",
+        title: "FORTRAN",
+        subtitle: "Programming language",
+        score: 3,
+        img: "https://cdn-icons-png.flaticon.com/128/9000/9000020.png",
+        text: `
+        <p>
+            Volume finite scripts for numerical fluid simulations.
         </p>
         `
     }

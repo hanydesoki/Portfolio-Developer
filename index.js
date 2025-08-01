@@ -169,7 +169,7 @@ function createSkillElement(skill) {
     const subtilteHTML = subtitle ? `<span class="skill-subtitle">${subtitle}</span>` : '';
     const imgHTML = img ? `<img class="skill-img" src="${img}"/>` : '';
 
-    const skillElement = new DOMParser().parseFromString(
+    const skillElement = createElementFromString(
         `
         <div class="skill-card" id="skill-${key}">
             <div class="skill-header">
@@ -184,9 +184,7 @@ function createSkillElement(skill) {
             <div class="skill-description">${text}</div>
         </div>
         `
-        ,
-        "text/html"
-    ).getRootNode().body.firstChild;
+    );
 
     skillElement.classList.add("closed");
 
@@ -236,9 +234,60 @@ function buildSkillsPage(skills) {
 
         skillListElement.appendChild(skillElement);
     });
+};
+
+// Experiences 
+function createExperienceCardElement(experience) {
+    const {key, companyName, position, summary, location, start, end, text} = experience;
+
+    const startDate = moment(start, "YYYY-MM").format("MMM YYYY");
+    const endDate = end ? moment(end, "YYYY-MM").format("MMM YYYY") : "ongoing";
+    const {country, city} = location
+
+    let dateRangeText = [startDate, endDate].join(" - ");
+
+    const experienceCardElement = createElementFromString(
+        `
+        <div class="experience-card" id="experience-${key}">
+            <div class="experience-card-header">
+                <div class="experience-card-position">${position}</div>
+                <div class="experience-card-summary>${summary}</div>
+                <div class="experience-card-locdate">
+                    <div class="experience-card-daterange">
+                        ${dateRangeText}
+                    </div>
+                    <div class="experience-card-location">
+                        ${[companyName, city, country].join(" | ")}
+                    </div>
+                </div>
+            </div>
+            <div class="experience-card-description">
+                ${text}
+            </div>
+        </div>
+        `
+    );
+
+
+    return experienceCardElement;
+
+}
+
+function buildExperiencePage(experiences) {
+    const experienceListElement = document.getElementById("experience-list");
+
+    if (!experienceListElement) return;
+
+    experiences.forEach(experience => {
+        const experienceCardElement = createExperienceCardElement(experience);
+
+        experienceListElement.appendChild(experienceCardElement);
+    });
+
 }
 
 pageNavigationSetup(all_pages);
+buildExperiencePage(all_experiences);
 buildSkillsPage(all_skills);
 
 // Force trigger animation at the start of the application
