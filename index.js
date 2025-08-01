@@ -16,19 +16,25 @@ function switchToPage(pageName) {
     const tabId = "opt-" + pageName;
 
     for (let page of mainContentElement.children) {
-        page.style.transform = "scale(0)";
-        page.style.width = "0";
-        page.style.height = "0";
+        // page.style.transform = "scale(0)";
+        // page.style.width = "0";
+        // page.style.height = "0";
+        page.style.display = "none";
         page.classList.add("retracted");
     }
 
     const pageElement = document.getElementById(pageId);
 
     if (pageElement){
-        pageElement.style.transform = "scale(1)";
-        pageElement.style.width = "100%";
-        pageElement.style.height = "100%";
-        pageElement.classList.remove("retracted")
+        // pageElement.style.transform = "scale(1)";
+        // pageElement.style.width = "100%";
+        // pageElement.style.height = "100%";
+        pageElement.style.display = "flex";
+        
+        new Promise(() => {
+            setTimeout(() => {pageElement.classList.remove("retracted");}, 10);
+        })
+        
     }
 
     
@@ -251,7 +257,7 @@ function createExperienceCardElement(experience) {
         <div class="experience-card" id="experience-${key}">
             <div class="experience-card-header">
                 <div class="experience-card-position">${position}</div>
-                <div class="experience-card-summary>${summary}</div>
+                <div class="experience-card-summary">${summary}</div>
                 <div class="experience-card-locdate">
                     <div class="experience-card-daterange">
                         ${dateRangeText}
@@ -268,6 +274,30 @@ function createExperienceCardElement(experience) {
         `
     );
 
+    const experienceHeaderElement = experienceCardElement.getElementsByClassName("experience-card-header")[0];
+    experienceCardElement.classList.add("closed");
+    experienceHeaderElement.onclick = () => {
+        // const allExperienceCards = document.getElementsByClassName("experience-card");
+
+        // if (allExperienceCards){
+        //     [...allExperienceCards].forEach(experienceCardElement => {
+        //         if (experienceCardElement.id === "experience-" + key) return;
+
+        //         experienceCardElement.classList.remove("opened");
+        //         experienceCardElement.classList.add("closed");
+        //     })
+        // }
+
+        const element = document.getElementById("experience-" + key);
+        if (element.className.includes("closed")){
+            element.classList.remove("closed");
+            element.classList.add("opened");
+        }
+        else {
+            element.classList.remove("opened");
+            element.classList.add("closed");
+        }
+    }
 
     return experienceCardElement;
 
@@ -279,7 +309,7 @@ function buildExperiencePage(experiences) {
     if (!experienceListElement) return;
 
     experiences.forEach(experience => {
-        const experienceCardElement = createExperienceCardElement(experience);
+        const experienceCardElement = createExperienceCardElement(experience); 
 
         experienceListElement.appendChild(experienceCardElement);
     });
