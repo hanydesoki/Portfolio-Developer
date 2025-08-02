@@ -171,6 +171,13 @@ html, body {
     margin-left: 10rem;
 }
 
+.opened {
+    .fa-caret-right {
+        transform: rotate(90deg);
+        transition: transform ease 0.2s;
+    }
+}
+
 /* ------------ HOME --------------- */
 
 #page-home {
@@ -375,7 +382,7 @@ html, body {
 }
 
 .retracted .skill-card {
-    margin-left: -10rem;
+    margin-left: -5rem;
     opacity: 0;
     transition: all ease 0.2s!important;
 }
@@ -449,10 +456,24 @@ html, body {
 
 .experience-card-header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
+    img {
+        border: none;
+        width: 100px;
+    }
+}
+
+.experience-header-preview {
+    display: flex;
     flex-direction: column;
     padding: 6px;
     gap: 4px;
-    cursor: pointer;
+    /* width: 50%; */
+    /* flex: 1; */
+    /* cursor: pointer; */
 }
 
 .experience-card-position {
@@ -497,7 +518,7 @@ html, body {
 }
 
 .retracted .experience-card {
-    margin-left: -10rem;
+    margin-left: -5rem;
     opacity: 0;
     transition: all ease 0.2s!important;
 }

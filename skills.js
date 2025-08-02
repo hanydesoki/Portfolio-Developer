@@ -105,7 +105,7 @@ const all_skills = [
     {
         key: "react",
         title: "React JS",
-        subtitle: "Framework",
+        subtitle: "Web application framework",
         score: 4,
         img: "https://cdn-icons-png.flaticon.com/128/3459/3459528.png",
         text: `

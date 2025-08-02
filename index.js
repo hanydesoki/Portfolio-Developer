@@ -30,9 +30,9 @@ function switchToPage(pageName) {
         // pageElement.style.width = "100%";
         // pageElement.style.height = "100%";
         pageElement.style.display = "flex";
-        
+
         new Promise(() => {
-            setTimeout(() => {pageElement.classList.remove("retracted");}, 10);
+            setTimeout(() => {pageElement.classList.remove("retracted");}, 1);
         })
         
     }
@@ -244,7 +244,9 @@ function buildSkillsPage(skills) {
 
 // Experiences 
 function createExperienceCardElement(experience) {
-    const {key, companyName, position, summary, location, start, end, text} = experience;
+    const {key, companyName, position, summary, location, start, end, text, img} = experience;
+
+    const imgHTML = img ? `<img src="${img}"/>` : '';
 
     const startDate = moment(start, "YYYY-MM").format("MMM YYYY");
     const endDate = end ? moment(end, "YYYY-MM").format("MMM YYYY") : "ongoing";
@@ -256,16 +258,22 @@ function createExperienceCardElement(experience) {
         `
         <div class="experience-card" id="experience-${key}">
             <div class="experience-card-header">
-                <div class="experience-card-position">${position}</div>
-                <div class="experience-card-summary">${summary}</div>
-                <div class="experience-card-locdate">
-                    <div class="experience-card-daterange">
-                        ${dateRangeText}
+                <div class="experience-header-preview">
+                    <div class="experience-card-position">
+                        <div class="fa fa-caret-right"></div>
+                        <span>${position}</span>
                     </div>
-                    <div class="experience-card-location">
-                        ${[companyName, city, country].join(" | ")}
+                    <div class="experience-card-summary">${summary}</div>
+                    <div class="experience-card-locdate">
+                        <div class="experience-card-daterange">
+                            ${dateRangeText}
+                        </div>
+                        <div class="experience-card-location">
+                            ${[companyName, city, country].join(" | ")}
+                        </div>
                     </div>
                 </div>
+                <div>${imgHTML}</div>
             </div>
             <div class="experience-card-description">
                 ${text}
