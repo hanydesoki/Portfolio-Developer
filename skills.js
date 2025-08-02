@@ -126,8 +126,8 @@ const all_skills = [
         </p>`
     },
     {
-        key: "clangage",
-        title: "C Langage",
+        key: "clanguage",
+        title: "C Language",
         subtitle: "Programming language",
         score: 3,
         img: "https://cdn-icons-png.flaticon.com/128/3665/3665899.png",

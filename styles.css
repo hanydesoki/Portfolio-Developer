@@ -71,6 +71,7 @@ html, body {
 #content {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 
     flex: 1;
     width: 100%;
@@ -92,6 +93,8 @@ html, body {
     /* height: 100%; */
 
     display: flex;
+    justify-content: center;
+    /* align-items: center; */
     flex-direction: column;
     overflow: hidden;
 }
@@ -104,8 +107,9 @@ html, body {
 
     justify-content: center;
     align-content: center;
-    gap: 40px;
+    /* gap: 40px; */
     font-size: 1.2rem;
+    z-index: 1;
 }
 
 .nav-opt {
@@ -120,14 +124,19 @@ html, body {
     user-select: none;
     height: 30px;
     padding: 2px 10px;
-    border-radius: 4px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    flex: 1;
+    position: relative;
 }
 
 .nav-opt-underline {
     transform: scaleX(0);
     height: 2px;
-    width: 100%;
+    width: calc(100% - 10px);
     background-color: #00b478;
+    position: absolute;
+    top: calc(100% - 2px);
     /* transition: all ease 0.2s; */
 }
 
@@ -462,7 +471,7 @@ html, body {
 
     img {
         border: none;
-        width: 100px;
+        width: 90px;
     }
 }
 
@@ -515,6 +524,11 @@ html, body {
     background-color: #00b478;
     color: white;
     transition: all ease 0.4s;
+
+    img {
+        transform: scale(1.1);
+        transition: all ease 0.2s;
+    }
 }
 
 .retracted .experience-card {
