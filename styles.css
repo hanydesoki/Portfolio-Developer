@@ -1,6 +1,7 @@
 html, body {
     width: 100%;
     height: 100%;
+    max-width: 100%;
     margin: 0;
 
     background: linear-gradient(
@@ -540,4 +541,38 @@ html, body {
 .experience-card.opened {
     width: 95%;
     transition: width ease 0.4s;
+}
+
+@media screen and (max-width: 850px) {
+    #email-address {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .page-icon {
+        display: none!important;
+    }
+    #experience-list, #skill-list {
+        align-items: center;
+    }
+    .experience-card.closed, .skill-card.closed{
+        width: 75%;
+    }
+    .experience-card.closed img {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    #page-home {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .experience-card.closed {
+        min-height: 100px;
+    }
 }

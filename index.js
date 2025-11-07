@@ -197,9 +197,9 @@ function createSkillElement(skill) {
     const skillScoreElement = skillElement.getElementsByClassName("skill-score")[0];
 
     // Skill stars
-    skillScoreElement.innerHTML = Array.from({length: score}).map(
-        e => "<span class='skill-score-star fa fa-star'></span>"
-    ).join("");
+    // skillScoreElement.innerHTML = Array.from({length: score}).map(
+    //     e => "<span class='skill-score-star fa fa-star'></span>"
+    // ).join("");
 
     const skillHeader = skillElement.getElementsByClassName("skill-header")[0];
 
